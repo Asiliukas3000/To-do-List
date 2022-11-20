@@ -173,25 +173,19 @@
 {
     float:left;
     height: 100%;
-    width: 110px;
-    background-color: black;
+    width: 180px;
+    background-color:darkslategray;
     color:white;
     border-radius: 0;
     text-align: left;
     padding: 10px;
-    padding-left: 0;
-    padding-top: 0;
     padding-bottom: 100%;
+    margin: 0;
 }
 .sidebar ul
 {
     list-style: none;
     padding: 10px;
-}
-.sidebar h2
-{
-    text-align: center;
-    font-size: 25px;
 }
 .sidebar li
 {
@@ -200,10 +194,11 @@
     text-align: left;
     width: 100%;
     border-radius: 0;
+    margin: 0;
 }
 .sidebar li:hover
 {
-    background-color: white;
+    background-color:white;
     color: black;
     font-size: 16px;
     transition: .5s;

@@ -2,37 +2,15 @@ let mainBox = document.getElementById("mainBox");
 let addListButton = document.getElementById("addListButton");
 let inputField = document.getElementById("inputField");
 
-let autoSaveButton = document.getElementById("autoSaveButton");
+let lists=JSON.parse(localStorage.getItem("data"));
+
 let downloadButton = document.getElementById("downloadButton");
 let uploadButton = document.getElementById("uploadButton");
 
-downloadButton.addEventListener("click",DownloadData);
-uploadButton.addEventListener("click",UploadData);
+downloadButton.addEventListener("click",()=>DownloadData(true));
+uploadButton.addEventListener("click",()=>UploadData(true));
 
-let lists = new Array()
-
-let autoSave=false;
-autoSave = localStorage.getItem("autoSave");
-if(!autoSave)autoSaveButton.innerHTML= "Auto save <b>Off</b>";
-if(autoSave)UploadData();
-
-
-autoSaveButton.addEventListener("click", function()
-{
-    if(autoSave)
-    {
-        autoSave=false;
-        autoSaveButton.innerHTML= "Auto save <b>Off</b>"
-        localStorage.setItem("autoSave",autoSave);
-    }
-    else
-    {
-        autoSave=true;
-        autoSaveButton.innerHTML= "Auto save <b>On</b>" 
-        localStorage.setItem("autoSave",autoSave);
-        localStorage.setItem("data",JSON.stringify(lists));
-    }
-})
+UploadData(false);
 
 addListButton.addEventListener("click", function () {
     if(inputField.value!="")
@@ -43,14 +21,14 @@ addListButton.addEventListener("click", function () {
             items: new Array()
         })
     updateList();
-    if(autoSave)DownloadData();
+    DownloadData(false);
     inputField.value = "";
     }
     else alert("Please type in the name of the list")
 })
 
 function updateList() {
-    if(autoSave)DownloadData();
+    DownloadData(false);
     mainBox.innerHTML = "";
     for (let i = 0; i < lists.length; i++) {
         //new list box
@@ -173,14 +151,29 @@ function compare( a, b ) {
     }
     return 0;
 }
-function UploadData()
+function UploadData(alternative)
 {
-    lists=JSON.parse(localStorage.getItem("data"));
-    updateList();
-    //alert("uploaded!");
+    if(!alternative)
+    {
+        lists=JSON.parse(localStorage.getItem("data"));
+        updateList();
+    }
+    else 
+    {
+        lists=JSON.parse(localStorage.getItem("alternativeData"));
+        updateList();
+        setTimeout(function() {
+            alert("Backup was uploaded sucesfully!");
+        },10)
+    }
 }
-function DownloadData()
+function DownloadData(alternative)
 {
-    localStorage.setItem("data",JSON.stringify(lists));
-    //alert("downloaded");
+    if(!alternative)localStorage.setItem("data",JSON.stringify(lists));
+    else {
+        localStorage.setItem("alternativeData",JSON.stringify(lists));
+        setTimeout(function() {
+            alert("Backup was downloaded successfully!");
+        },10)
+    }
 }
