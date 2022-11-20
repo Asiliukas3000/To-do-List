@@ -50,6 +50,7 @@ function updateList() {
         let input = document.createElement("input");
         let addItemButton = document.createElement("button");
         addItemButton.innerHTML = "Add Item";
+        addItemButton.className="addItemButton"
         input.placeholder = "Name of the item";
 
         addItemButton.addEventListener("click", function () {

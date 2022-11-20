@@ -27,7 +27,7 @@
     text-align: center;
     margin: 0;
     padding: 30px;
-    background-color: black;
+    background-color:black;
     color: white;
     border-radius: 0;
 }
@@ -92,7 +92,7 @@
     font-size: 15px;
     transition:.5s;
 }
-.listBox button:hover
+.addItemButton:hover
 {
     padding: 10px;
     margin: 5px;
@@ -113,7 +113,7 @@
     border-color: black;
     font-size: 13px;;
     margin: 5px;
-    background-color: white;
+    background-color:white;
     color:black;
     height: fit-content;
     padding:5px;
@@ -121,10 +121,8 @@
 }
 .item:hover
 {
-    background-color:blueviolet;
-    color: white;
+    background-color:honeydew;
     transition:.5s;
-    font-weight: bolder;
 }
 .item b,.item p
 {
@@ -139,8 +137,19 @@
 .whiteButton,.orangeButton,.redButton
 {
     border-color: black;
-    border-style: solid;
+    border-style:solid;
     float:right;
+    transition: .5s;
+}
+.orangeButton:hover,.redButton:hover
+{
+    border-color:white;
+    transition: .5s;
+}
+.whiteButton:hover
+{
+    border-color:yellowgreen;
+    transition: .5s;
 }
 .whiteButton
 {
@@ -173,26 +182,26 @@
 {
     float:left;
     height: 100%;
-    width: 180px;
+    width: 200px;
     background-color:darkslategray;
     color:white;
     border-radius: 0;
     text-align: left;
-    padding: 10px;
+    padding: 0px;
     padding-bottom: 100%;
     margin: 0;
 }
 .sidebar ul
 {
     list-style: none;
-    padding: 10px;
+    padding: 0px;
 }
 .sidebar li
 {
-    padding: 10px;
-    transform: .5s;
+    padding: 10px 20px;
+    transition: .5s;
     text-align: left;
-    width: 100%;
+    width: 80%;
     border-radius: 0;
     margin: 0;
 }
@@ -202,4 +211,9 @@
     color: black;
     font-size: 16px;
     transition: .5s;
+}
+.deleteButton:hover
+{
+    background-color: tomato;
+    color:white
 }
