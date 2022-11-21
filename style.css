@@ -6,9 +6,12 @@
     border-style: none;
     margin: 0;
 }
-.mainBox
+#mainBox
 {
-    flex-direction: column-reverse;
+    border-radius:0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 .nav h1
 {
@@ -100,12 +103,6 @@
     background-color:black;
     font-size: 16px;
     transition:.5s;
-}
-#mainBox
-{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
 }
 .item
 {
@@ -216,4 +213,10 @@
 {
     background-color: tomato;
     color:white
+}
+#imageURL
+{
+    margin: 20px;
+    padding: 5px;
+    border-radius: 0;
 }

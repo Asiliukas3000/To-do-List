@@ -6,9 +6,27 @@ let lists=JSON.parse(localStorage.getItem("data"));
 
 let downloadButton = document.getElementById("downloadButton");
 let uploadButton = document.getElementById("uploadButton");
+let chagneColourButton = document.getElementById("colourEditor");
 
 downloadButton.addEventListener("click",()=>DownloadData(true));
 uploadButton.addEventListener("click",()=>UploadData(true));
+
+mainBox.style.backgroundColor=localStorage.getItem("backgroundColour");
+
+chagneColourButton.addEventListener("click",function()
+{
+    let imageInput = prompt("Please enter the url of the image");
+    if(imageInput!=null||imageInput!="")
+    {
+        mainBox.style.backgroundColor=imageInput;
+        localStorage.setItem("backgroundColour",imageInput);
+        setTimeout(function() {
+            alert("Background image changed to " +imageInput);
+        },10)
+
+    }
+    else alert("Please type in the URL of the background image");
+})
 
 UploadData(false);
 
