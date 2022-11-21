@@ -15,7 +15,7 @@ mainBox.style.backgroundColor=localStorage.getItem("backgroundColour");
 
 chagneColourButton.addEventListener("click",function()
 {
-    let imageInput = prompt("Please enter the url of the image");
+    let imageInput = prompt("Please enter the colour");
     if(imageInput!=null||imageInput!="")
     {
         mainBox.style.backgroundColor=imageInput;
