@@ -1,27 +1,28 @@
 let mainBox = document.getElementById("mainBox");
 let addListButton = document.getElementById("addListButton");
 let inputField = document.getElementById("inputField");
+let body = document.body;
 
 let lists=JSON.parse(localStorage.getItem("data"));
 
 let downloadButton = document.getElementById("downloadButton");
 let uploadButton = document.getElementById("uploadButton");
-let chagneColourButton = document.getElementById("colourEditor");
+let changeImageButton = document.getElementById("imageEditor");
 
 downloadButton.addEventListener("click",()=>DownloadData(true));
 uploadButton.addEventListener("click",()=>UploadData(true));
 
-mainBox.style.backgroundColor=localStorage.getItem("backgroundColour");
+body.style.backgroundImage=localStorage.getItem("backgroundImage");
 
-chagneColourButton.addEventListener("click",function()
+changeImageButton.addEventListener("click",function()
 {
-    let imageInput = prompt("Please enter the colour");
+    let imageInput = prompt("Type in the url of the background image");
     if(imageInput!=null||imageInput!="")
     {
-        mainBox.style.backgroundColor=imageInput;
-        localStorage.setItem("backgroundColour",imageInput);
+        body.style.backgroundImage=("url(\""+imageInput+"\")");
+        localStorage.setItem("backgroundImage",body.style.backgroundImage);
         setTimeout(function() {
-            alert("Background image changed to " +imageInput);
+            alert("Background image changed to " +body.style.backgroundImage);
         },10)
 
     }
@@ -174,11 +175,13 @@ function UploadData(alternative)
 {
     if(!alternative)
     {
+        if(localStorage.getItem("data")==true)
         lists=JSON.parse(localStorage.getItem("data"));
         updateList();
     }
     else 
     {
+        if(localStorage.getItem("alternativeData")==true)
         lists=JSON.parse(localStorage.getItem("alternativeData"));
         updateList();
         setTimeout(function() {
