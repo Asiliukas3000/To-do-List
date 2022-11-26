@@ -4,8 +4,8 @@ let inputField = document.getElementById("inputField");
 let body = document.body;
 
 
-let lists
-if(localStorage.getItem("data")==true)
+let lists;
+if(localStorage.getItem("data")!=null)
     lists=JSON.parse(localStorage.getItem("data"));
 else lists = new Array();
 
@@ -16,6 +16,7 @@ let changeImageButton = document.getElementById("imageEditor");
 downloadButton.addEventListener("click",()=>DownloadData(true));
 uploadButton.addEventListener("click",()=>UploadData(true));
 
+if(localStorage.getItem("backgroundImage")!=null)
 body.style.backgroundImage=localStorage.getItem("backgroundImage");
 
 changeImageButton.addEventListener("click",function()
@@ -179,13 +180,13 @@ function UploadData(alternative)
 {
     if(!alternative)
     {
-        if(localStorage.getItem("data")==true)
+        if(localStorage.getItem("data")!=null)
         lists=JSON.parse(localStorage.getItem("data"));
         updateList();
     }
     else 
     {
-        if(localStorage.getItem("alternativeData")==true)
+        if(localStorage.getItem("alternativeData")!=null)
         lists=JSON.parse(localStorage.getItem("alternativeData"));
         updateList();
         setTimeout(function() {
