@@ -3,7 +3,11 @@ let addListButton = document.getElementById("addListButton");
 let inputField = document.getElementById("inputField");
 let body = document.body;
 
-let lists=JSON.parse(localStorage.getItem("data"));
+
+let lists
+if(localStorage.getItem("data")==true)
+    lists=JSON.parse(localStorage.getItem("data"));
+else lists = new Array();
 
 let downloadButton = document.getElementById("downloadButton");
 let uploadButton = document.getElementById("uploadButton");
